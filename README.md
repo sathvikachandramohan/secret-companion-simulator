@@ -1,4 +1,4 @@
-# gachapan-simulator
+# secret companion-simulator
 A cozy, notebook-themed interactive web application featuring an animated chibi companion that reads, analyzes, and emotionally reacts to user-written messages in real time. 
 
 ## Description
