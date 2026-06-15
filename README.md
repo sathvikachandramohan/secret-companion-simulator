@@ -2,7 +2,7 @@
 A cozy, notebook-themed interactive web application featuring an animated chibi companion that reads, analyzes, and emotionally reacts to user-written messages in real time. 
 
 ## Description
-The "Secret Message Simulator" is an aesthetic frontend project designed with a hand-drawn sketchbook appearance. It completely bypasses the need for external images or audio files by relying on modern native browser APIs. Using pure CSS geometry and an inline SVG displacement filter, it mimics an authentic hand-drawn journal where users can draft a letter, watch it fold itself into a 3D envelope, lock it with a heart sticker, and generate a customized shared gift card.
+The "gachapan simulator" is an aesthetic frontend project designed with a hand-drawn sketchbook appearance. It completely bypasses the need for external images or audio files by relying on modern native browser APIs. Using pure CSS geometry and an inline SVG displacement filter, it mimics an authentic hand-drawn journal where users can draft a letter, watch it fold itself into a 3D envelope, lock it with a heart sticker, and generate a customized shared gift card.
 
 ---
 
