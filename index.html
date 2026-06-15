@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secret Message Simulator 💌</title>
+  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)"/>
+  <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin/>
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap)" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ===== FLOATING PIXEL HEARTS BACKGROUND ===== -->
+  <div class="bg-hearts" aria-hidden="true">
+    <span class="bh bh1">♥</span>
+    <span class="bh bh2">♥</span>
+    <span class="bh bh3">♥</span>
+    <span class="bh bh4">♥</span>
+    <span class="bh bh5">♥</span>
+    <span class="bh bh6">♥</span>
+  </div>
+
+  <!-- ===== MAIN APP WRAPPER ===== -->
+  <div class="app-wrapper">
+
+    <!-- ========== LEFT PANEL: CHIBI CHARACTER ========== -->
+    <div class="left-panel">
+
+      <!-- Speech Bubble -->
+      <div class="speech-bubble-wrap">
+        <div class="speech-bubble" id="speechBubble">
+          <span id="speechText">Type a message...</span>
+        </div>
+        <div class="speech-tail"></div>
+      </div>
+
+      <!-- Chibi Girl SVG -->
+      <div class="chibi-container" id="chibiContainer">
+        <svg class="chibi-svg" id="chibiSVG" viewBox="0 0 160 260" xmlns="[w3.org](http://www.w3.org/2000/svg)" aria-label="Chibi character">
+
+          <!-- ── HAIR BACK ── -->
+          <rect x="28" y="42" width="104" height="70" rx="4" fill="#3b1f0e" stroke="#111" stroke-width="3"/>
+          <!-- hair sides -->
+          <rect x="20" y="58" width="20" height="60" rx="3" fill="#3b1f0e" stroke="#111" stroke-width="2"/>
+          <rect x="120" y="58" width="20" height="60" rx="3" fill="#3b1f0e" stroke="#111" stroke-width="2"/>
+          <!-- twin tails -->
+          <ellipse cx="22" cy="130" rx="14" ry="22" fill="#3b1f0e" stroke="#111" stroke-width="2"/>
+          <ellipse cx="138" cy="130" rx="14" ry="22" fill="#3b1f0e" stroke="#111" stroke-width="2"/>
+          <!-- hair ribbons -->
+          <rect x="10" y="108" width="24" height="10" rx="2" fill="#ff6eb4" stroke="#111" stroke-width="2"/>
+          <rect x="126" y="108" width="24" height="10" rx="2" fill="#ff6eb4" stroke="#111" stroke-width="2"/>
+
+          <!-- ── HEAD ── -->
+          <rect x="32" y="40" width="96" height="90" rx="18" fill="#ffe0c8" stroke="#111" stroke-width="3"/>
+
+          <!-- ── FACE FEATURES ── -->
+          <!-- Default: Happy -->
+
+          <!-- Eyes group -->
+          <g id="eyesGroup">
+            <!-- Left Eye default (happy arc) -->
+            <g id="leftEye">
+              <ellipse cx="62" cy="80" rx="10" ry="11" fill="white" stroke="#111" stroke-width="2"/>
+              <ellipse cx="62" cy="82" rx="6" ry="7" fill="#4a2060"/>
+              <ellipse cx="64" cy="79" rx="2" ry="2" fill="white"/>
+              <!-- Happy arc overlay (closed smile eye) - hidden by default, shown in happy -->
+              <path id="leftEyeHappy" d="M52 80 Q62 72 72 80" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round" opacity="0"/>
+              <!-- Heart eye left -->
+              <text id="leftEyeHeart" x="54" y="87" font-size="16" fill="#ff3366" opacity="0" font-family="serif">♥</text>
+              <!-- Shocked eye left (big circle) -->
+              <ellipse id="leftEyeShocked" cx="62" cy="80" rx="11" ry="12" fill="white" stroke="#111" stroke-width="2.5" opacity="0"/>
+              <ellipse id="leftEyeShockedPupil" cx="62" cy="82" rx="5" ry="5" fill="#111" opacity="0"/>
+              <!-- Angry brow left -->
+              <rect id="leftBrowAngry" x="50" y="66" width="22" height="5" rx="2" fill="#111" transform="rotate(15,61,68)" opacity="0"/>
+              <!-- Thinking brow left -->
+              <rect id="leftBrowThink" x="50" y="66" width="22" height="4" rx="2" fill="#111" opacity="0"/>
+            </g>
+            <!-- Right Eye default -->
+            <g id="rightEye">
+              <ellipse cx="98" cy="80" rx="10" ry="11" fill="white" stroke="#111" stroke-width="2"/>
+              <ellipse cx="98" cy="82" rx="6" ry="7" fill="#4a2060"/>
+              <ellipse cx="100" cy="79" rx="2" ry="2" fill="white"/>
+              <!-- Happy arc overlay right -->
+              <path id="rightEyeHappy" d="M88 80 Q98 72 108 80" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round" opacity="0"/>
+              <!-- Heart eye right -->
+              <text id="rightEyeHeart" x="90" y="87" font-size="16" fill="#ff3366" opacity="0" font-family="serif">♥</text>
+              <!-- Shocked eye right -->
+              <ellipse id="rightEyeShocked" cx="98" cy="80" rx="11" ry="12" fill="white" stroke="#111" stroke-width="2.5" opacity="0"/>
+              <ellipse id="rightEyeShockedPupil" cx="98" cy="82" rx="5" ry="5" fill="#111" opacity="0"/>
+              <!-- Angry brow right -->
+              <rect id="rightBrowAngry" x="88" y="66" width="22" height="5" rx="2" fill="#111" transform="rotate(-15,99,68)" opacity="0"/>
+              <!-- Thinking brow right -->
+              <rect id="rightBrowThink" x="88" y="66" width="22" height="4" rx="2" fill="#111" opacity="0"/>
+            </g>
+          </g>
+
+          <!-- ── NOSE ── -->
+          <ellipse cx="80" cy="96" rx="4" ry="2.5" fill="#e8a88a"/>
+
+          <!-- ── MOUTH GROUP ── -->
+          <g id="mouthGroup">
+            <!-- Default happy smile -->
+            <path id="mouthHappy" d="M66 106 Q80 118 94 106" stroke="#111" stroke-width="3" fill="#ff9db5" stroke-linecap="round"/>
+            <!-- Sad mouth -->
+            <path id="mouthSad" d="M66 114 Q80 104 94 114" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round" opacity="0"/>
+            <!-- Shocked O mouth -->
+            <ellipse id="mouthShocked" cx="80" cy="110" rx="8" ry="10" fill="#cc3366" stroke="#111" stroke-width="2" opacity="0"/>
+            <!-- Angry mouth -->
+            <path id="mouthAngry" d="M66 112 Q80 106 94 112" stroke="#111" stroke-width="3" fill="none" stroke-linecap="round" opacity="0"/>
+            <!-- Thinking flat mouth -->
+            <rect id="mouthThink" x="68" y="108" width="24" height="4" rx="2" fill="#111" opacity="0"/>
+          </g>
+
+          <!-- ── BLUSH CHEEKS ── -->
+          <ellipse id="blushLeft" cx="46" cy="100" rx="12" ry="7" fill="#ffaacc" opacity="0"/>
+          <ellipse id="blushRight" cx="114" cy="100" rx="12" ry="7" fill="#ffaacc" opacity="0"/>
+
+          <!-- ── TEARS ── -->
+          <g id="tearsGroup" opacity="0">
+            <!-- left tear -->
+            <rect x="56" y="88" width="5" height="14" rx="3" fill="#66ccff"/>
+            <ellipse cx="58" cy="103" rx="4" ry="5" fill="#66ccff"/>
+            <!-- right tear -->
+            <rect x="96" y="88" width="5" height="14" rx="3" fill="#66ccff"/>
+            <ellipse cx="98" cy="103" rx="4" ry="5" fill="#66ccff"/>
+          </g>
+
+          <!-- ── THINK BUBBLE ── -->
+          <g id="thinkBubble" opacity="0">
+            <circle cx="112" cy="55" r="3" fill="white" stroke="#111" stroke-width="1.5"/>
+            <circle cx="120" cy="46" r="5" fill="white" stroke="#111" stroke-width="1.5"/>
+            <circle cx="130" cy="36" r="8" fill="white" stroke="#111" stroke-width="2"/>
+            <text x="124" y="41" font-size="10" fill="#333" font-family="serif">?</text>
+          </g>
+
+          <!-- ── BODY ── -->
+          <!-- Neck -->
+          <rect x="70" y="128" width="20" height="16" rx="4" fill="#ffe0c8" stroke="#111" stroke-width="2"/>
+
+          <!-- Dress body -->
+          <rect x="36" y="140" width="88" height="80" rx="8" fill="#ff6eb4" stroke="#111" stroke-width="3"/>
+
+          <!-- Dress collar -->
+          <polygon points="80,140 60,158 100,158" fill="#ff9dd6" stroke="#111" stroke-width="2"/>
+
+          <!-- Dress pocket deco -->
+          <rect x="48" y="165" width="22" height="18" rx="4" fill="#ff9dd6" stroke="#111" stroke-width="2"/>
+          <text x="50" y="179" font-size="12" fill="#ff3366" font-family="serif">♥</text>
+
+          <!-- Dress bottom ruffle -->
+          <rect x="30" y="206" width="100" height="18" rx="5" fill="#ff9dd6" stroke="#111" stroke-width="2"/>
+          <!-- ruffle bumps -->
+          <ellipse cx="50" cy="206" rx="12" ry="6" fill="#ff9dd6" stroke="#111" stroke-width="2"/>
+          <ellipse cx="80" cy="206" rx="12" ry="6" fill="#ff9dd6" stroke="#111" stroke-width="2"/>
+          <ellipse cx="110" cy="206" rx="12" ry="6" fill="#ff9dd6" stroke="#111" stroke-width="2"/>
+
+          <!-- Arms -->
+          <rect x="14" y="145" width="26" height="52" rx="10" fill="#ffe0c8" stroke="#111" stroke-width="2"/>
+          <rect x="120" y="145" width="26" height="52" rx="10" fill="#ffe0c8" stroke="#111" stroke-width="2"/>
+
+          <!-- Hands -->
+          <ellipse cx="27" cy="200" rx="13" ry="11" fill="#ffe0c8" stroke="#111" stroke-width="2"/>
+          <ellipse cx="133" cy="200" rx="13" ry="11" fill="#ffe0c8" stroke="#111" stroke-width="2"/>
+
+          <!-- Legs -->
+          <rect x="56" y="218" width="20" height="36" rx="6" fill="#f0c0e8" stroke="#111" stroke-width="2"/>
+          <rect x="84" y="218" width="20" height="36" rx="6" fill="#f0c0e8" stroke="#111" stroke-width="2"/>
+
+          <!-- Shoes -->
+          <rect x="48" y="248" width="30" height="12" rx="5" fill="#3b1f0e" stroke="#111" stroke-width="2"/>
+          <rect x="82" y="248" width="30" height="12" rx="5" fill="#3b1f0e" stroke="#111" stroke-width="2"/>
+
+          <!-- ── LETTER IN HAND ── -->
+          <g id="letterInHand">
+            <rect x="104" y="182" width="30" height="22" rx="3" fill="#fffde7" stroke="#111" stroke-width="2"/>
+            <line x1="104" y1="182" x2="119" y2="193" stroke="#111" stroke-width="1.5"/>
+            <line x1="134" y1="182" x2="119" y2="193" stroke="#111" stroke-width="1.5"/>
+            <rect x="112" y="196" width="10" height="6" rx="1" fill="#ff6eb4"/>
+          </g>
+
+        </svg>
+
+        <!-- Pixel star sparkles around chibi -->
+        <span class="sparkle sp1" aria-hidden="true">✦</span>
+        <span class="sparkle sp2" aria-hidden="true">✦</span>
+        <span class="sparkle sp3" aria-hidden="true">★</span>
+      </div>
+
+      <!-- Expression label -->
+      <div class="expression-label" id="expressionLabel">✨ Happy ✨</div>
+
+    </div>
+    <!-- /LEFT PANEL -->
+
+    <!-- ========== RIGHT PANEL: RETRO WINDOW ========== -->
+    <div class="right-panel">
+
+      <!-- Window chrome -->
+      <div class="retro-window" id="messageWindow">
+
+        <!-- Title bar -->
+        <div class="window-titlebar">
+          <div class="titlebar-icon">💌</div>
+          <div class="titlebar-title">Secret Message Simulator</div>
+          <div class="titlebar-btns">
+            <button class="wbtn wbtn-min" title="Minimize" aria-label="Minimize">─</button>
+            <button class="wbtn wbtn-max" title="Maximize" aria-label="Maximize">□</button>
+            <button class="wbtn wbtn-close" title="Close" aria-label="Close">✕</button>
+          </div>
+        </div>
+
+        <!-- Window body -->
+        <div class="window-body" id="windowBody">
+
+          <!-- Corner hearts -->
+          <span class="corner-heart ch-tl" aria-hidden="true">♥</span>
+          <span class="corner-heart ch-tr" aria-hidden="true">♥</span>
+          <span class="corner-heart ch-bl" aria-hidden="true">♥</span>
+          <span class="corner-heart ch-br" aria-hidden="true">♥</span>
+
+          <!-- ── COMPOSE FORM ── -->
+          <div class="compose-form" id="composeForm">
+
+            <div class="field-group">
+              <label class="pixel-label" for="toField">TO:</label>
+              <input class="pixel-input" type="text" id="toField" placeholder="Recipient name..." maxlength="40" autocomplete="off"/>
+            </div>
+
+            <div class="field-group">
+              <label class="pixel-label" for="fromField">FROM:</label>
+              <input class="pixel-input" type="text" id="fromField" placeholder="Your name..." maxlength="40" autocomplete="off"/>
+            </div>
+
+            <div class="field-group">
+              <label class="pixel-label" for="messageField">MESSAGE:</label>
+              <textarea class="pixel-textarea" id="messageField" placeholder="Type your secret message here..." rows="6" maxlength="300"></textarea>
+              <div class="char-count"><span id="charCount">0</span>/300</div>
+            </div>
+
+            <!-- Mood row -->
+            <div class="mood-row">
+              <span class="pixel-label">MOOD DETECTED:</span>
+              <span class="mood-badge" id="moodBadge">😊 HAPPY</span>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="btn-row">
+              <button class="pixel-btn btn-clear" id="clearBtn">🗑 CLEAR</button>
+              <button class="pixel-btn btn-seal" id="sealBtn">💌 SEAL SECRET MESSAGE</button>
+            </div>
+
+          </div>
+          <!-- /COMPOSE FORM -->
+
+          <!-- ── SEALED CARD ── -->
+          <div class="sealed-card" id="sealedCard" style="display:none;">
+
+            <!-- Envelope animation area -->
+            <div class="envelope-wrap" id="envelopeWrap">
+              <div class="envelope" id="envelope">
+                <div class="env-back"></div>
+                <div class="env-flap" id="envFlap"></div>
+                <div class="env-front-left"></div>
+                <div class="env-front-right"></div>
+                <div class="env-bottom"></div>
+                <div class="env-heart" id="envHeart">♥</div>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-card" id="summaryCard" style="opacity:0; transform:translateY(20px);">
+              <div class="summary-header">✦ SECRET MESSAGE SEALED ✦</div>
+              <div class="summary-row"><span class="sl">TO:</span> <span class="sv" id="sumTo"></span></div>
+              <div class="summary-row"><span class="sl">FROM:</span> <span class="sv" id="sumFrom"></span></div>
+              <div class="summary-divider">· · · · · · · · · · ·</div>
+              <div class="summary-message" id="sumMsg"></div>
+              <div class="summary-mood" id="sumMood"></div>
+              <div class="summary-divider">· · · · · · · · · · ·</div>
+              <button class="pixel-btn btn-write-another" id="writeAnotherBtn">✏ WRITE ANOTHER</button>
+            </div>
+
+          </div>
+          <!-- /SEALED CARD -->
+
+        </div>
+        <!-- /WINDOW BODY -->
+
+      </div>
+      <!-- /RETRO WINDOW -->
+
+    </div>
+    <!-- /RIGHT PANEL -->
+
+  </div>
+  <!-- /APP WRAPPER -->
+
+  <script src="script.js"></script>
+</body>
+</html>
