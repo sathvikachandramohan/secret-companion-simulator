@@ -41,7 +41,7 @@ This project was built to explore the boundaries of CSS illustration, complex UI
 
 ---
 ## Live Demo Link
-
+https://sathvikachandramohan.github.io/secret-companion-simulator/
 
 ## Project Structure
 ```text
