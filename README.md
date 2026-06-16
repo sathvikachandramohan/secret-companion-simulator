@@ -21,16 +21,16 @@ This project was built to explore the boundaries of CSS illustration, complex UI
 ##  Features
 - **Hand-Drawn Sketchy Filter:** Utilizes an inline SVG `<feTurbulence>` filter to give box borders and structural edges an organic, slightly imperfect "jittery" pen stroke style.
 - **Real-Time Sentiment Mood Engine:** As you type into the typewriter console, JavaScript checks for custom keyphrases to update the **Mood Meter** and transition the chibi mascot across 6 distinct vector states:
-  - ❤️ **Love:** Character blushes (`love`, `cute`, `marry`, `hug`)
-  - 😢 **Sad:** Character cries custom falling teardrops (`miss you`, `sad`, `goodbye`)
-  - 😲 **Shocked:** Character's eyes widen (`wow`, `omg`, `impossible`)
-  - 😡 **Angry:** Character gets cross-eyed eyebrows (`hate`, `annoying`, `stupid`)
-  - 🤔 **Thinking:** Character looks pensive (`think`, `maybe`, `perhaps`)
-  - 😊 **Happy:** The peaceful default writing state.
-- **🎵 Code-Synthesized Audio (Web Audio API):** Mechanical typewriter keystroke clicks and paper rustling fold sound effects are completely synthesized mathematically from oscillator nodes in real time.
-- **✉️ 3D Sealing Automation Sequence:** Clicking the action button hides the console, moves the text into a stationary sheet, folds down a 3D envelope flap using perspective transforms, and pops up a springy heart sticker.
-- **🌸 Decorative Gift Card Generation:** Spawns a dedicated summary card styled with custom digital washi tape textures and stars for the final presentation.
-- **✨ Ambient Environment:** Features a floating background engine that generates and gently animates pastel stickers across the viewport.
+  - **Love:** Character blushes (`love`, `cute`, `marry`, `hug`)
+  - **Sad:** Character cries custom falling teardrops (`miss you`, `sad`, `goodbye`)
+  - **Shocked:** Character's eyes widen (`wow`, `omg`, `impossible`)
+  - **Angry:** Character gets cross-eyed eyebrows (`hate`, `annoying`, `stupid`)
+  - **Thinking:** Character looks pensive (`think`, `maybe`, `perhaps`)
+  -  **Happy:** The peaceful default writing state.
+- **Code-Synthesized Audio (Web Audio API):** Mechanical typewriter keystroke clicks and paper rustling fold sound effects are completely synthesized mathematically from oscillator nodes in real time.
+- **3D Sealing Automation Sequence:** Clicking the action button hides the console, moves the text into a stationary sheet, folds down a 3D envelope flap using perspective transforms, and pops up a springy heart sticker.
+- ** Decorative Gift Card Generation:** Spawns a dedicated summary card styled with custom digital washi tape textures and stars for the final presentation.
+- ** Ambient Environment:** Features a floating background engine that generates and gently animates pastel stickers across the viewport.
 
 ---
 
